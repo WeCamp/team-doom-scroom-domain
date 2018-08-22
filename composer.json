@@ -1,17 +1,37 @@
 {
-    "name": "team-damian/scroom",
-    "description": "Scroom!",
-    "type": "project",
-    "license": "proprietary",
-    "authors": [
-        {
-            "name": "Jasper N. Brouwer",
-            "email": "jasper@nerdsweide.nl"
-        }
-    ],
-    "require": {},
-    "repositories": [
-        {"type": "composer", "url": "https://packagist-repo.weca.mp/wecamp/"},
-        {"packagist.org": false}
-    ]
+  "name": "team-damian/scroom",
+  "description": "Scroom!",
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Jasper N. Brouwer",
+      "email": "jasper@nerdsweide.nl"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Scroom\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Scroom\\Tests\\": "test/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packagist-repo.weca.mp/wecamp/"
+    },
+    {
+      "packagist.org": false
+    }
+  ]
 }
