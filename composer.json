@@ -1,0 +1,17 @@
+{
+    "name": "team-damian/scroom",
+    "description": "Scroom!",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Jasper N. Brouwer",
+            "email": "jasper@nerdsweide.nl"
+        }
+    ],
+    "require": {},
+    "repositories": [
+        {"type": "composer", "url": "https://packagist-repo.weca.mp/wecamp/"},
+        {"packagist.org": false}
+    ]
+}
