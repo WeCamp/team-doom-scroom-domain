@@ -14,6 +14,11 @@ final class Room
      */
     private $loons;
 
+    /**
+     * @var Play
+     */
+    private $play;
+
     public static function openUp(string $name): self
     {
         return new self($name);
@@ -44,6 +49,16 @@ final class Room
         }
 
         return false;
+    }
+
+    public function startPlay(): void
+    {
+        $this->play = Play::start();
+    }
+
+    public function currentPlay(): Play
+    {
+        return $this->play;
     }
 
     private function __construct(string $name)

@@ -3,6 +3,7 @@
 namespace Scroom\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Scroom\Play;
 use Scroom\Room;
 
 final class RoomTest extends TestCase
@@ -25,5 +26,16 @@ final class RoomTest extends TestCase
     public function itsNameCannotBeEmpty()
     {
         Room::openUp(' ');
+    }
+
+    /**
+     * @test
+     */
+    public function itStartsAPlay()
+    {
+        $room = Room::openUp('Some name');
+        $room->startPlay();
+
+        $this->assertInstanceOf(Play::class, $room->currentPlay());
     }
 }
