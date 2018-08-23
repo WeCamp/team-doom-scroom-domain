@@ -2,13 +2,13 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.3/phpunit.xsd"
-        beStrictAboutTestsThatDoNotTestAnything="true"
+        bootstrap="./vendor/autoload.php"
         beStrictAboutOutputDuringTests="true"
         colors="true"
 >
     <testsuites>
         <testsuite name="core">
-            <directory suffix="Test.php">./tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
