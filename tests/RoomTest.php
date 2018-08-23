@@ -11,7 +11,7 @@ final class RoomTest extends TestCase
     /**
      * @test
      */
-    public function itOpensUpWithAName()
+    public function itOpensUpWithAName(): void
     {
         $room = Room::openUp('Some name');
 
@@ -23,7 +23,7 @@ final class RoomTest extends TestCase
      * @test
      * @expectedException \InvalidArgumentException
      */
-    public function itsNameCannotBeEmpty()
+    public function itsNameCannotBeEmpty(): void
     {
         Room::openUp(' ');
     }
@@ -31,7 +31,7 @@ final class RoomTest extends TestCase
     /**
      * @test
      */
-    public function itStartsAPlay()
+    public function itStartsAPlay(): void
     {
         $room = Room::openUp('Some name');
         $room->startPlay();
