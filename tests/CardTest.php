@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Scroom\tests;
 
 use PHPUnit\Framework\TestCase;
