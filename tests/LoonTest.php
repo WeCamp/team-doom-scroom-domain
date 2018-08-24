@@ -33,4 +33,15 @@ final class LoonTest extends TestCase
         $this->assertInstanceOf(Loon::class, $loon);
         $this->assertTrue($this->room->hasReceived($loon));
     }
+
+    /**
+     * @test
+     * @expectedException \RuntimeException
+     */
+    public function itOnlyEntersTheRoomOnce(): void
+    {
+        $loon = Loon::enter($this->room);
+
+        $this->room->receiveLoon($loon);
+    }
 }

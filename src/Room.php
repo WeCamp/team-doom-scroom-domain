@@ -26,6 +26,12 @@ final class Room
 
     public function receiveLoon(Loon $loon): void
     {
+        foreach ($this->loons as $loonInRoom) {
+            if ($loon->id() === $loonInRoom->id()) {
+                throw new \RuntimeException('Loon can only enter the room once');
+            }
+        }
+
         $this->loons[] = $loon;
     }
 
