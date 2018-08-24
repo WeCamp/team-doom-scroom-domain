@@ -23,6 +23,16 @@ final class RoomTest extends TestCase
 
     /**
      * @test
+     */
+    public function itHasAnId(): void
+    {
+        $room = Room::openUp('Test room');
+
+        $this->assertNotEmpty($room->id());
+    }
+
+    /**
+     * @test
      * @expectedException \InvalidArgumentException
      */
     public function itsNameCannotBeEmpty(): void
