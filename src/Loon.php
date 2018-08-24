@@ -25,6 +25,7 @@ final class Loon
 
     private function __construct(Room $room)
     {
+        /** @noinspection PhpUnhandledExceptionInspection */
         $this->id = Uuid::uuid4()->toString();
 
         $room->receiveLoon($this);
