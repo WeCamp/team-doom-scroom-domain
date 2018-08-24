@@ -13,7 +13,7 @@ final class DeckTest extends TestCase
     /**
      * @test
      */
-    public function itForms()
+    public function itForms(): void
     {
         $deck = Deck::form([Card::ONE()]);
 
@@ -25,7 +25,7 @@ final class DeckTest extends TestCase
      * @test
      * @expectedException \InvalidArgumentException
      */
-    public function itCannotFormWithNoCards()
+    public function itCannotFormWithNoCards(): void
     {
         Deck::form([]);
     }
@@ -34,7 +34,7 @@ final class DeckTest extends TestCase
      * @test
      * @expectedException \InvalidArgumentException
      */
-    public function itCanOnlyContainCards()
+    public function itCanOnlyContainCards(): void
     {
         Deck::form(['not a card']);
     }
@@ -42,7 +42,7 @@ final class DeckTest extends TestCase
     /**
      * @test
      */
-    public function itCanFormACompleteSet()
+    public function itCanFormACompleteSet(): void
     {
         $deck = Deck::formCompleteSet();
 

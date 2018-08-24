@@ -33,7 +33,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function itImmediatelyStartsTheFirstTurn()
+    public function itImmediatelyStartsTheFirstTurn(): void
     {
         $play = Play::start();
 
@@ -43,7 +43,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function itHasNotImmediatelyEnded()
+    public function itHasNotImmediatelyEnded(): void
     {
         $play = Play::start();
 
@@ -53,7 +53,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function itEnds()
+    public function itEnds(): void
     {
         $play = Play::start();
         $play->end();
@@ -64,7 +64,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function itsCurrentTurnEndsWhenItselfEnds()
+    public function itsCurrentTurnEndsWhenItselfEnds(): void
     {
         $play = Play::start();
         $play->end();
@@ -75,7 +75,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function itEndsTheCurrentTurn()
+    public function itEndsTheCurrentTurn(): void
     {
         $play = Play::start();
         $firstTurn = $play->currentTurn();
@@ -88,7 +88,7 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
-    public function aNewTurnStartsWhenTheCurrentOneEnds()
+    public function aNewTurnStartsWhenTheCurrentOneEnds(): void
     {
         $play = Play::start();
         $firstTurn = $play->currentTurn();
