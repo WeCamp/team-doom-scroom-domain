@@ -67,25 +67,33 @@ final class Room
         return false;
     }
 
-    public function startPlay(): void
-    {
-        $this->play = Play::start();
-    }
-
     public function currentPlay(): Play
     {
         return $this->play;
     }
 
+    public function allPicksAreIn(): bool
+    {
+        foreach ($this->loons as $loon) {
+            if ($loon->pickedCard() === null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private function __construct(string $name)
     {
-        $this->id = Uuid::uuid4()->toString();
-
         if (!trim($name)) {
             throw new InvalidArgumentException('Room-name cannot be empty');
         }
 
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $this->id = Uuid::uuid4()->toString();
+
         $this->name = $name;
         $this->loons = [];
+        $this->play = Play::start();
     }
 }

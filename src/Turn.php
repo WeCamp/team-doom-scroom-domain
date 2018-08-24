@@ -40,7 +40,9 @@ final class Turn
 
     private function __construct()
     {
+        /** @noinspection PhpUnhandledExceptionInspection */
         $this->id = Uuid::uuid4()->toString();
+
         $this->hasEnded = false;
     }
 }

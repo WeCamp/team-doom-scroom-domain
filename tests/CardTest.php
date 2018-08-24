@@ -31,7 +31,7 @@ final class CardTest extends TestCase
     /**
      * @test
      */
-    public function itRevealsAllAvailableCards()
+    public function itRevealsAllAvailableCards(): void
     {
         $allCards = Card::all();
 

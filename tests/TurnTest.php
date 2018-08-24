@@ -32,7 +32,7 @@ final class TurnTest extends TestCase
     /**
      * @test
      */
-    public function itHasNotImmediatelyEnded()
+    public function itHasNotImmediatelyEnded(): void
     {
         $turn = Turn::start();
 
@@ -42,7 +42,7 @@ final class TurnTest extends TestCase
     /**
      * @test
      */
-    public function itEnds()
+    public function itEnds(): void
     {
         $turn = Turn::start();
         $turn->end();

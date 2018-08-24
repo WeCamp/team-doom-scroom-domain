@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Scroom\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Scroom\Card;
 use Scroom\Loon;
 use Scroom\Room;
 
 final class LoonTest extends TestCase
 {
     /**
-     * @var Room;
+     * @var Room
      */
     private $room;
 
@@ -33,6 +34,7 @@ final class LoonTest extends TestCase
         $loon = Loon::enter($this->room);
 
         $this->assertInstanceOf(Loon::class, $loon);
+        $this->assertEquals($this->room, $loon->room());
         $this->assertTrue($this->room->hasReceived($loon));
     }
 
@@ -55,5 +57,27 @@ final class LoonTest extends TestCase
         $loon = Loon::enter($this->room);
 
         $this->room->receiveLoon($loon);
+    }
+
+    /**
+     * @test
+     */
+    public function itHasNotPickedACardImmediately(): void
+    {
+        $loon = Loon::enter($this->room);
+
+        $this->assertNull($loon->pickedCard());
+    }
+
+    /**
+     * @test
+     */
+    public function itPicksACard(): void
+    {
+        $loon = Loon::enter($this->room);
+
+        $loon->pick(Card::ONE());
+
+        $this->assertEquals(Card::ONE(), $loon->pickedCard());
     }
 }
