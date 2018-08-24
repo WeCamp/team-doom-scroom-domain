@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Scroom\tests;
+namespace Scroom\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Scroom\Card;
