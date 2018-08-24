@@ -84,6 +84,27 @@ final class Card
         return new self(self::COFFEE);
     }
 
+    /**
+     * @return Card[]
+     */
+    public static function all(): array
+    {
+        return [
+            Card::ONE(),
+            Card::TWO(),
+            Card::THREE(),
+            Card::FIVE(),
+            Card::EIGHT(),
+            Card::THIRTEEN(),
+            Card::TWENTY(),
+            Card::FORTY(),
+            Card::HUNDRED(),
+            Card::UNKNOWN(),
+            Card::INFINITE(),
+            Card::COFFEE()
+        ];
+    }
+
     public function toString()
     {
         return $this->value;

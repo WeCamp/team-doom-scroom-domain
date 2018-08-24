@@ -23,7 +23,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Scroom\\Tests\\": "test/"
+      "Scroom\\Tests\\": "tests/"
     }
   },
   "repositories": [
