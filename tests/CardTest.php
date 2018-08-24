@@ -27,4 +27,25 @@ final class CardTest extends TestCase
         $this->assertEquals('infinite', Card::INFINITE()->toString());
         $this->assertEquals('coffee', Card::COFFEE()->toString());
     }
+
+    /**
+     * @test
+     */
+    public function itRevealsAllAvailableCards()
+    {
+        $allCards = Card::all();
+
+        $this->assertContains(Card::ONE(), $allCards, '', false, false);
+        $this->assertContains(Card::TWO(), $allCards, '', false, false);
+        $this->assertContains(Card::THREE(), $allCards, '', false, false);
+        $this->assertContains(Card::FIVE(), $allCards, '', false, false);
+        $this->assertContains(Card::EIGHT(), $allCards, '', false, false);
+        $this->assertContains(Card::THIRTEEN(), $allCards, '', false, false);
+        $this->assertContains(Card::TWENTY(), $allCards, '', false, false);
+        $this->assertContains(Card::FORTY(), $allCards, '', false, false);
+        $this->assertContains(Card::HUNDRED(), $allCards, '', false, false);
+        $this->assertContains(Card::UNKNOWN(), $allCards, '', false, false);
+        $this->assertContains(Card::INFINITE(), $allCards, '', false, false);
+        $this->assertContains(Card::COFFEE(), $allCards, '', false, false);
+    }
 }
