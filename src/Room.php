@@ -2,8 +2,15 @@
 
 namespace Scroom;
 
+use Ramsey\Uuid\Uuid;
+
 final class Room
 {
+    /**
+     * @var string
+     */
+    private $id;
+
     /**
      * @var string
      */
@@ -22,6 +29,11 @@ final class Room
     public static function openUp(string $name): self
     {
         return new self($name);
+    }
+
+    public function id(): string
+    {
+        return $this->id;
     }
 
     public function name(): string
@@ -63,6 +75,8 @@ final class Room
 
     private function __construct(string $name)
     {
+        $this->id = Uuid::uuid4()->toString();
+
         if (!trim($name)) {
             throw new \InvalidArgumentException('Room-name cannot be empty');
         }

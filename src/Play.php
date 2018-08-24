@@ -2,8 +2,15 @@
 
 namespace Scroom;
 
+use Ramsey\Uuid\Uuid;
+
 final class Play
 {
+    /**
+     * @var string
+     */
+    private $id;
+
     /**
      * @var Turn[]
      */
@@ -17,6 +24,11 @@ final class Play
     public static function start(): self
     {
         return new self();
+    }
+
+    public function id(): string
+    {
+        return $this->id;
     }
 
     public function end(): void
@@ -43,6 +55,7 @@ final class Play
 
     private function __construct()
     {
+        $this->id = Uuid::uuid4()->toString();
         $this->turns = [Turn::start()];
         $this->hasEnded = false;
     }

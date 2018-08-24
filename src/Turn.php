@@ -5,6 +5,11 @@ namespace Scroom;
 final class Turn
 {
     /**
+     * @var string
+     */
+    private $id;
+
+    /**
      * @var bool
      */
     private $hasEnded;
@@ -12,6 +17,11 @@ final class Turn
     public static function start(): self
     {
         return new self();
+    }
+
+    public function id(): string
+    {
+        return $this->id;
     }
 
     public function end(): void
@@ -26,6 +36,7 @@ final class Turn
 
     private function __construct()
     {
+        $this->id = Uuid::uuid4()->toString();
         $this->hasEnded = false;
     }
 }
