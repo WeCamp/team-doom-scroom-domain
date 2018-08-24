@@ -45,6 +45,11 @@ final class Room
         return $this->name;
     }
 
+    public function loons(): array
+    {
+        return $this->loons;
+    }
+
     public function receiveLoon(Loon $loon): void
     {
         foreach ($this->loons as $loonInRoom) {
