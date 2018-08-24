@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Scroom;
 
+use InvalidArgumentException;
 use Ramsey\Uuid\Uuid;
+use RuntimeException;
 
 final class Room
 {
@@ -47,7 +49,7 @@ final class Room
     {
         foreach ($this->loons as $loonInRoom) {
             if ($loon->id() === $loonInRoom->id()) {
-                throw new \RuntimeException('Loon can only enter the room once');
+                throw new RuntimeException('Loon can only enter the room once');
             }
         }
 
@@ -80,7 +82,7 @@ final class Room
         $this->id = Uuid::uuid4()->toString();
 
         if (!trim($name)) {
-            throw new \InvalidArgumentException('Room-name cannot be empty');
+            throw new InvalidArgumentException('Room-name cannot be empty');
         }
 
         $this->name = $name;
