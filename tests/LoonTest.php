@@ -38,6 +38,16 @@ final class LoonTest extends TestCase
 
     /**
      * @test
+     */
+    public function itHasAnId(): void
+    {
+        $loon = Loon::enter($this->room);
+
+        $this->assertNotEmpty($loon->id());
+    }
+
+    /**
+     * @test
      * @expectedException \RuntimeException
      */
     public function itOnlyEntersTheRoomOnce(): void

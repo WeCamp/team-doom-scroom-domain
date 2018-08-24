@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Scroom;
 
+use Ramsey\Uuid\Uuid;
+
 final class Turn
 {
     /**

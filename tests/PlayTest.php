@@ -23,6 +23,16 @@ final class PlayTest extends TestCase
     /**
      * @test
      */
+    public function itHasAnId(): void
+    {
+        $play = Play::start();
+
+        $this->assertNotEmpty($play->id());
+    }
+
+    /**
+     * @test
+     */
     public function itImmediatelyStartsTheFirstTurn()
     {
         $play = Play::start();

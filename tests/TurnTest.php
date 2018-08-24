@@ -22,6 +22,16 @@ final class TurnTest extends TestCase
     /**
      * @test
      */
+    public function itHasAnId(): void
+    {
+        $turn = Turn::start();
+
+        $this->assertNotEmpty($turn->id());
+    }
+
+    /**
+     * @test
+     */
     public function itHasNotImmediatelyEnded()
     {
         $turn = Turn::start();
