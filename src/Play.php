@@ -57,7 +57,9 @@ final class Play
 
     private function __construct()
     {
+        /** @noinspection PhpUnhandledExceptionInspection */
         $this->id = Uuid::uuid4()->toString();
+
         $this->turns = [Turn::start()];
         $this->hasEnded = false;
     }

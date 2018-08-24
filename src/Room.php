@@ -79,11 +79,12 @@ final class Room
 
     private function __construct(string $name)
     {
-        $this->id = Uuid::uuid4()->toString();
-
         if (!trim($name)) {
             throw new InvalidArgumentException('Room-name cannot be empty');
         }
+
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $this->id = Uuid::uuid4()->toString();
 
         $this->name = $name;
         $this->loons = [];
