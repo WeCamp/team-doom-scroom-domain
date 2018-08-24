@@ -67,14 +67,20 @@ final class Room
         return false;
     }
 
-    public function startPlay(): void
-    {
-        $this->play = Play::start();
-    }
-
     public function currentPlay(): Play
     {
         return $this->play;
+    }
+
+    public function allPicksAreIn(): bool
+    {
+        foreach ($this->loons as $loon) {
+            if ($loon->pickedCard() === null) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private function __construct(string $name)
@@ -88,5 +94,6 @@ final class Room
 
         $this->name = $name;
         $this->loons = [];
+        $this->play = Play::start();
     }
 }
