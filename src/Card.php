@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Scroom;
 
+use InvalidArgumentException;
+
 final class Card
 {
     private const ONE = '1';
@@ -23,6 +25,11 @@ final class Card
      * @var string
      */
     private $value;
+
+    private function __construct(string $value)
+    {
+        $this->value = $value;
+    }
 
     public static function ONE(): self
     {
@@ -85,6 +92,35 @@ final class Card
     }
 
     /**
+     * @param string $value
+     *
+     * @return Card
+     */
+    public static function new(string $value): Card
+    {
+        $all = [
+            self::ONE,
+            self::TWO,
+            self::THREE,
+            self::FIVE,
+            self::EIGHT,
+            self::THIRTEEN,
+            self::TWENTY,
+            self::FORTY,
+            self::HUNDRED,
+            self::UNKNOWN,
+            self::INFINITE,
+            self::COFFEE,
+        ];
+
+        if (!in_array($value, $all)) {
+            throw new InvalidArgumentException('Not a valid card value.');
+        }
+
+        return new self($value);
+    }
+
+    /**
      * @return Card[]
      */
     public static function all(): array
@@ -101,17 +137,12 @@ final class Card
             Card::HUNDRED(),
             Card::UNKNOWN(),
             Card::INFINITE(),
-            Card::COFFEE()
+            Card::COFFEE(),
         ];
     }
 
     public function toString(): string
     {
         return $this->value;
-    }
-
-    private function __construct(string $value)
-    {
-        $this->value = $value;
     }
 }

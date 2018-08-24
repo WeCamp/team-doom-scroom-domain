@@ -33,6 +33,11 @@ final class Play
         return $this->id;
     }
 
+    public function turns(): array
+    {
+        return $this->turns;
+    }
+
     public function end(): void
     {
         $this->currentTurn()->end();
